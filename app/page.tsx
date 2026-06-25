@@ -2,9 +2,12 @@ import AnalyzeInput from './components/AnalyzeInput';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-2xl font-bold mb-8">AI Social Analytics Dashboard</h1>
-      <AnalyzeInput />
+    <main style={{ padding: '40px', fontFamily: 'sans-serif' }}>
+      <h1>AI Social Analytics Dashboard</h1>
+      <p>Analyze your TikTok videos below:</p>
+      <div style={{ marginTop: '20px' }}>
+        <AnalyzeInput />
+      </div>
     </main>
   );
 }
