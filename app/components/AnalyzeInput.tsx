@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import type { PostMetric } from '../../lib/schema';
 
-export default function AnalyzeInput() {
+export default function AnalyzeInput({ onAnalysisComplete }: { onAnalysisComplete: (result: any) => void }) {
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<PostMetric | null>(null);
