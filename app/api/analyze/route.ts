@@ -1,6 +1,6 @@
 // app/api/analyze/route.ts
 import { NextResponse } from 'next/server';
-import { fetchTikTokMetadata } from '@/lib/connectors/tiktok';
+import { fetchTikTokMetadata } from '../../../lib/connectors/tiktok';
 
 export const runtime = 'nodejs';     // not edge — scrapers can run long
 export const maxDuration = 60;       // Vercel function timeout (seconds)
