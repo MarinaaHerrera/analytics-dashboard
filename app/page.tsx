@@ -9,15 +9,11 @@ export default function Home() {
   return (
     <main style={{ padding: '40px', fontFamily: 'sans-serif' }}>
       <h1>AI Social Analytics Dashboard</h1>
-      <p>Analyze your TikTok videos below:</p>
+      <AnalyzeInput onAnalysisComplete={(result: any) => setData(result)} />
       
-      <div style={{ marginTop: '20px' }}>
-        <AnalyzeInput onAnalysisComplete={(result: any) => setData(result)} />
-      </div>
-
       {data && (
         <div style={{ marginTop: '40px', height: '300px', width: '100%' }}>
-          <h3>Analysis Visualization</h3>
+          <h3>Video Performance</h3>
           <ResponsiveContainer>
             <LineChart data={[{ name: 'Video', views: data.views }]}>
               <CartesianGrid strokeDasharray="3 3" />
