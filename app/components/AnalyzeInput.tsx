@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import type { PostMetric } from '@/lib/schema'; 
+import type { PostMetric } from '../../lib/schema';
 
 export default function AnalyzeInput() {
   const [url, setUrl] = useState('');
