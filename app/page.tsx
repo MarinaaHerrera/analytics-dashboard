@@ -5,122 +5,141 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div style={{ fontFamily: "Inter, sans-serif", background: "#fff", overflowX: "hidden" }}>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Inter:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; }
+        .display { font-family: 'Bagel Fat One', cursive; }
+        .btn-bounce:active { transform: translate(3px, 3px); box-shadow: none !important; }
+      `}</style>
+
+    <div style={{ background: "#FFF176", minHeight: "100vh", overflowX: "hidden" }}>
 
       {/* ── NAV ── */}
-      <nav style={{ padding: "0 32px", height: "60px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "2px solid #000" }}>
-        <span style={{ fontSize: "22px", fontWeight: 900, letterSpacing: "-0.04em", color: "#000" }}>
+      <nav style={{ padding: "0 32px", height: "64px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "3px solid #000", background: "#fff" }}>
+        <span className="display" style={{ fontSize: "28px", color: "#000", letterSpacing: "-0.01em" }}>
           Pop<span style={{ color: "#f72585" }}>Off</span>
-          <span style={{ fontSize: "10px", fontWeight: 700, background: "#f72585", color: "#fff", borderRadius: "4px", padding: "2px 6px", marginLeft: "8px", verticalAlign: "middle" }}>BETA</span>
         </span>
-        <button
-          onClick={() => router.push("/analyze")}
-          style={{ height: "36px", padding: "0 18px", borderRadius: "999px", border: "2px solid #000", background: "#fff", fontSize: "13px", fontWeight: 700, cursor: "pointer" }}
-        >
-          Open App →
-        </button>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <span style={{ fontSize: "11px", fontWeight: 800, textTransform: "uppercase", background: "#FFF176", border: "2px solid #000", borderRadius: "999px", padding: "3px 12px" }}>Beta</span>
+          <button className="btn-bounce" onClick={() => router.push("/analyze")}
+            style={{ height: "38px", padding: "0 20px", borderRadius: "999px", border: "2px solid #000", background: "#f72585", color: "#fff", fontSize: "13px", fontWeight: 800, cursor: "pointer", boxShadow: "3px 3px 0 #000" }}>
+            Open App →
+          </button>
+        </div>
       </nav>
 
       {/* ── HERO ── */}
-      <section style={{ background: "#f72585", padding: "80px 32px", textAlign: "center", borderBottom: "3px solid #000", position: "relative", overflow: "hidden" }}>
-        {/* decorative blobs */}
-        <div style={{ position: "absolute", top: "-40px", left: "-40px", width: "200px", height: "200px", borderRadius: "50%", background: "#84cc16", opacity: 0.4 }} />
-        <div style={{ position: "absolute", bottom: "-60px", right: "-30px", width: "250px", height: "250px", borderRadius: "50%", background: "#ffe600", opacity: 0.5 }} />
+      <section style={{ padding: "60px 32px 0", maxWidth: "1100px", margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", alignItems: "start" }}>
 
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "inline-block", background: "#ffe600", border: "2px solid #000", borderRadius: "999px", padding: "4px 16px", fontSize: "12px", fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "24px" }}>
-            ⚡ AI-powered creator tool
+          {/* Left: text */}
+          <div>
+            {/* Eyebrow label */}
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "#fff", border: "2px solid #000", borderRadius: "999px", padding: "6px 16px", marginBottom: "24px" }}>
+              <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#f72585", display: "inline-block" }} />
+              <span style={{ fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em" }}>AI creator tool</span>
+            </div>
+
+            <h1 className="display" style={{ fontSize: "clamp(56px, 8vw, 88px)", lineHeight: 1, color: "#000", marginBottom: "8px" }}>
+              Make your
+            </h1>
+            <h1 className="display" style={{ fontSize: "clamp(56px, 8vw, 88px)", lineHeight: 1, color: "#fff", WebkitTextStroke: "3px #000", marginBottom: "8px" }}>
+              videos
+            </h1>
+            {/* Pink block behind PopOff */}
+            <div style={{ display: "inline-block", background: "#f72585", border: "3px solid #000", borderRadius: "16px", padding: "4px 20px", marginBottom: "28px" }}>
+              <h1 className="display" style={{ fontSize: "clamp(56px, 8vw, 88px)", lineHeight: 1, color: "#FFF176" }}>
+                PopOff.
+              </h1>
+            </div>
+
+            <p style={{ fontSize: "17px", color: "#000", lineHeight: 1.6, maxWidth: "420px", marginBottom: "32px", fontWeight: 500 }}>
+              Upload your draft video before you post. AI watches it, scores it, and tells you exactly what to fix to go viral.
+            </p>
+
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+              <button className="btn-bounce" onClick={() => router.push("/analyze")}
+                style={{ height: "52px", padding: "0 32px", borderRadius: "999px", border: "3px solid #000", background: "#000", color: "#FFF176", fontSize: "15px", fontWeight: 800, cursor: "pointer", boxShadow: "5px 5px 0 #f72585" }}>
+                Try it free →
+              </button>
+              <button className="btn-bounce" onClick={() => router.push("/analyze")}
+                style={{ height: "52px", padding: "0 32px", borderRadius: "999px", border: "3px solid #000", background: "#fff", color: "#000", fontSize: "15px", fontWeight: 800, cursor: "pointer", boxShadow: "5px 5px 0 #000" }}>
+                See how it works
+              </button>
+            </div>
           </div>
-          <h1 style={{ fontSize: "clamp(52px, 10vw, 96px)", fontWeight: 900, color: "#fff", lineHeight: 0.95, letterSpacing: "-0.04em", margin: "0 0 24px 0", textShadow: "4px 4px 0px #000" }}>
-            Make your<br />
-            videos<br />
-            <span style={{ color: "#ffe600", WebkitTextStroke: "2px #000" }}>PopOff.</span>
-          </h1>
-          <p style={{ fontSize: "18px", color: "#fff", maxWidth: "480px", margin: "0 auto 36px", lineHeight: 1.5, fontWeight: 500 }}>
-            Upload your video before you post. Our AI tells you exactly what will flop, what will fly, and how to fix it.
-          </p>
-          <button
-            onClick={() => router.push("/analyze")}
-            style={{ height: "54px", padding: "0 36px", borderRadius: "999px", border: "3px solid #000", background: "#ffe600", fontSize: "16px", fontWeight: 800, cursor: "pointer", boxShadow: "4px 4px 0px #000", transition: "transform 0.1s" }}
-            onMouseDown={(e) => (e.currentTarget.style.transform = "translate(2px,2px)")}
-            onMouseUp={(e) => (e.currentTarget.style.transform = "translate(0,0)")}
-          >
-            Try it free →
-          </button>
+
+          {/* Right: color block collage */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", paddingTop: "16px" }}>
+            {[
+              { bg: "#f72585", text: "Hook Score", sub: "First 3 seconds", emoji: "⚡" },
+              { bg: "#84cc16", text: "Viral Rate", sub: "Predicted reach", emoji: "📈" },
+              { bg: "#3b82f6", text: "Audio Check", sub: "Trending sounds", emoji: "🎵" },
+              { bg: "#FFF176", text: "AI Fixes", sub: "Specific actions", emoji: "🛠️", border: true },
+            ].map((card) => (
+              <div key={card.text} style={{ background: card.bg, border: `3px solid #000`, borderRadius: "20px", padding: "24px 20px", boxShadow: "4px 4px 0 #000" }}>
+                <div style={{ fontSize: "32px", marginBottom: "10px" }}>{card.emoji}</div>
+                <div className="display" style={{ fontSize: "22px", color: "#000", lineHeight: 1.1, marginBottom: "4px" }}>{card.text}</div>
+                <div style={{ fontSize: "12px", fontWeight: 600, color: "#000", opacity: 0.6 }}>{card.sub}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
+      {/* ── WAVY DIVIDER ── */}
+      <div style={{ marginTop: "60px", lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 60" style={{ width: "100%", display: "block" }}>
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f72585" stroke="#000" strokeWidth="2" />
+        </svg>
+      </div>
+
       {/* ── 3 TOOLS ── */}
-      <section style={{ padding: "80px 32px", background: "#fff", borderBottom: "3px solid #000" }}>
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "40px", fontWeight: 900, letterSpacing: "-0.03em", color: "#000", margin: 0 }}>
+      <section style={{ background: "#f72585", padding: "60px 32px", borderBottom: "3px solid #000" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <h2 className="display" style={{ fontSize: "52px", color: "#fff", textAlign: "center", marginBottom: "8px", WebkitTextStroke: "2px #000" }}>
             Three ways to grow.
           </h2>
-          <p style={{ color: "#71717a", marginTop: "8px", fontSize: "16px" }}>Pick your move.</p>
-        </div>
+          <p style={{ textAlign: "center", color: "#fff", fontWeight: 700, marginBottom: "40px", fontSize: "16px" }}>Pick your move ↓</p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px", maxWidth: "1000px", margin: "0 auto" }}>
-
-          {/* Card 1 */}
-          <div style={{ background: "#84cc16", border: "3px solid #000", borderRadius: "20px", padding: "32px", boxShadow: "6px 6px 0px #000", cursor: "pointer" }}
-            onClick={() => router.push("/analyze")}>
-            <div style={{ fontSize: "40px", marginBottom: "16px" }}>🎬</div>
-            <div style={{ fontSize: "11px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "8px", color: "#000", opacity: 0.6 }}>Tool 01</div>
-            <h3 style={{ fontSize: "26px", fontWeight: 900, letterSpacing: "-0.03em", color: "#000", margin: "0 0 12px 0" }}>Score Before You Post</h3>
-            <p style={{ fontSize: "14px", color: "#000", opacity: 0.7, lineHeight: 1.6, margin: "0 0 20px 0" }}>
-              Upload your draft video. Our AI watches it, scores it against viral benchmarks, and tells you exactly what to fix before you hit publish.
-            </p>
-            <span style={{ fontSize: "13px", fontWeight: 800, color: "#000" }}>Upload video →</span>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
+            {[
+              { num: "01", bg: "#FFF176", title: "Score Before You Post", desc: "Upload your draft. AI watches it, finds weak spots, and tells you exactly what to fix before you hit publish.", cta: "Upload video →", emoji: "🎬" },
+              { num: "02", bg: "#fff", title: "Analyse a Posted Video", desc: "Paste any TikTok link. Get your real engagement data, PopOff Score, and fixes based on what the algorithm rewards.", cta: "Paste link →", emoji: "🔗" },
+              { num: "03", bg: "#84cc16", title: "Full Profile Audit", desc: "Drop your TikTok handle. Get a full breakdown of what's holding your account back and a growth plan to hit your next milestone.", cta: "Audit profile →", emoji: "👤" },
+            ].map((card) => (
+              <div key={card.num} onClick={() => router.push("/analyze")}
+                style={{ background: card.bg, border: "3px solid #000", borderRadius: "20px", padding: "28px 24px", boxShadow: "5px 5px 0 #000", cursor: "pointer" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
+                  <span style={{ fontSize: "36px" }}>{card.emoji}</span>
+                  <span className="display" style={{ fontSize: "48px", color: "#000", opacity: 0.1, lineHeight: 1 }}>{card.num}</span>
+                </div>
+                <h3 className="display" style={{ fontSize: "26px", color: "#000", marginBottom: "10px", lineHeight: 1.1 }}>{card.title}</h3>
+                <p style={{ fontSize: "14px", color: "#000", opacity: 0.7, lineHeight: 1.6, marginBottom: "20px" }}>{card.desc}</p>
+                <span style={{ fontSize: "13px", fontWeight: 800, color: "#000", borderBottom: "2px solid #000" }}>{card.cta}</span>
+              </div>
+            ))}
           </div>
-
-          {/* Card 2 */}
-          <div style={{ background: "#f72585", border: "3px solid #000", borderRadius: "20px", padding: "32px", boxShadow: "6px 6px 0px #000", cursor: "pointer" }}
-            onClick={() => router.push("/analyze")}>
-            <div style={{ fontSize: "40px", marginBottom: "16px" }}>🔗</div>
-            <div style={{ fontSize: "11px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "8px", color: "#fff", opacity: 0.7 }}>Tool 02</div>
-            <h3 style={{ fontSize: "26px", fontWeight: 900, letterSpacing: "-0.03em", color: "#fff", margin: "0 0 12px 0" }}>Analyse a Posted Video</h3>
-            <p style={{ fontSize: "14px", color: "#fff", opacity: 0.85, lineHeight: 1.6, margin: "0 0 20px 0" }}>
-              Paste any TikTok link. See real engagement data, your viral score, and AI-powered fixes based on what the algorithm actually rewards.
-            </p>
-            <span style={{ fontSize: "13px", fontWeight: 800, color: "#fff" }}>Paste link →</span>
-          </div>
-
-          {/* Card 3 */}
-          <div style={{ background: "#ffe600", border: "3px solid #000", borderRadius: "20px", padding: "32px", boxShadow: "6px 6px 0px #000", cursor: "pointer" }}
-            onClick={() => router.push("/analyze")}>
-            <div style={{ fontSize: "40px", marginBottom: "16px" }}>👤</div>
-            <div style={{ fontSize: "11px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "8px", color: "#000", opacity: 0.6 }}>Tool 03</div>
-            <h3 style={{ fontSize: "26px", fontWeight: 900, letterSpacing: "-0.03em", color: "#000", margin: "0 0 12px 0" }}>Full Profile Audit</h3>
-            <p style={{ fontSize: "14px", color: "#000", opacity: 0.7, lineHeight: 1.6, margin: "0 0 20px 0" }}>
-              Drop your TikTok profile link. Get a full breakdown of what's holding your account back and a growth plan to hit your next milestone.
-            </p>
-            <span style={{ fontSize: "13px", fontWeight: 800, color: "#000" }}>Audit profile →</span>
-          </div>
-
         </div>
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section style={{ background: "#0f0f11", padding: "80px 32px", borderBottom: "3px solid #000" }}>
-        <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
-          <h2 style={{ fontSize: "40px", fontWeight: 900, color: "#fff", letterSpacing: "-0.03em", margin: "0 0 48px 0" }}>
-            How it works
-          </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "left" }}>
+      <section style={{ background: "#fff", padding: "60px 32px", borderBottom: "3px solid #000" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <h2 className="display" style={{ fontSize: "48px", color: "#000", textAlign: "center", marginBottom: "48px" }}>How it works</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
             {[
-              { num: "01", title: "Upload or paste your video", desc: "Drop in a draft file or paste a TikTok link. Works with videos up to 5 minutes.", color: "#84cc16" },
-              { num: "02", title: "AI scans 30+ viral factors", desc: "Hook strength, pacing, audio choice, caption length, CTA placement — everything the algorithm weighs.", color: "#f72585" },
-              { num: "03", title: "Get your PopOff Score", desc: "A single score out of 100 tells you instantly if this video is ready to post.", color: "#ffe600" },
-              { num: "04", title: "Fix it before it flops", desc: "Specific, actionable suggestions. Not 'improve your hook' — 'open with this type of visual in the first 1.5 seconds.'", color: "#a78bfa" },
+              { num: "1", title: "Upload or paste", desc: "Drop in a draft video file or paste a live TikTok URL.", bg: "#FFF176" },
+              { num: "2", title: "AI scans everything", desc: "Hook, pacing, audio, caption, CTA placement — 30+ signals.", bg: "#f72585", light: true },
+              { num: "3", title: "Get your PopOff Score", desc: "One number out of 100. Instantly know if it's ready to post.", bg: "#84cc16" },
+              { num: "4", title: "Fix it & post", desc: "Specific actions, not vague advice. Make the changes, post with confidence.", bg: "#3b82f6", light: true },
             ].map((step) => (
-              <div key={step.num} style={{ display: "flex", gap: "20px", alignItems: "flex-start" }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: step.color, border: "2px solid #fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", fontWeight: 900, color: "#000", flexShrink: 0 }}>
-                  {step.num}
-                </div>
-                <div>
-                  <div style={{ fontSize: "18px", fontWeight: 800, color: "#fff", marginBottom: "4px" }}>{step.title}</div>
-                  <div style={{ fontSize: "14px", color: "#71717a", lineHeight: 1.6 }}>{step.desc}</div>
-                </div>
+              <div key={step.num} style={{ background: step.bg, border: "3px solid #000", borderRadius: "20px", padding: "28px", boxShadow: "4px 4px 0 #000" }}>
+                <div className="display" style={{ fontSize: "48px", color: step.light ? "#fff" : "#000", opacity: 0.2, lineHeight: 1, marginBottom: "8px" }}>{step.num}</div>
+                <h3 className="display" style={{ fontSize: "24px", color: step.light ? "#fff" : "#000", marginBottom: "8px" }}>{step.title}</h3>
+                <p style={{ fontSize: "14px", color: step.light ? "#fff" : "#000", opacity: 0.75, lineHeight: 1.5 }}>{step.desc}</p>
               </div>
             ))}
           </div>
@@ -128,27 +147,27 @@ export default function Home() {
       </section>
 
       {/* ── BOTTOM CTA ── */}
-      <section style={{ background: "#ffe600", padding: "80px 32px", textAlign: "center", borderBottom: "3px solid #000" }}>
-        <h2 style={{ fontSize: "48px", fontWeight: 900, letterSpacing: "-0.04em", color: "#000", margin: "0 0 16px 0", textShadow: "3px 3px 0px #f72585" }}>
-          Stop guessing.<br />Start popping off.
+      <section style={{ background: "#FFF176", padding: "80px 32px", textAlign: "center" }}>
+        <h2 className="display" style={{ fontSize: "clamp(40px, 7vw, 72px)", color: "#000", marginBottom: "8px", lineHeight: 1 }}>
+          Stop guessing.
         </h2>
-        <p style={{ fontSize: "16px", color: "#000", opacity: 0.6, marginBottom: "32px" }}>Free to use. No account needed.</p>
-        <button
-          onClick={() => router.push("/analyze")}
-          style={{ height: "54px", padding: "0 40px", borderRadius: "999px", border: "3px solid #000", background: "#000", color: "#ffe600", fontSize: "16px", fontWeight: 800, cursor: "pointer", boxShadow: "4px 4px 0px #f72585" }}
-        >
+        <h2 className="display" style={{ fontSize: "clamp(40px, 7vw, 72px)", color: "#f72585", WebkitTextStroke: "2px #000", marginBottom: "32px", lineHeight: 1 }}>
+          Start popping off.
+        </h2>
+        <button className="btn-bounce" onClick={() => router.push("/analyze")}
+          style={{ height: "56px", padding: "0 44px", borderRadius: "999px", border: "3px solid #000", background: "#f72585", color: "#fff", fontSize: "16px", fontWeight: 800, cursor: "pointer", boxShadow: "5px 5px 0 #000" }}>
           Try PopOff free →
         </button>
+        <p style={{ marginTop: "16px", fontSize: "13px", color: "#000", opacity: 0.5, fontWeight: 600 }}>Free to use · No account needed</p>
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ padding: "24px 32px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "2px solid #000" }}>
-        <span style={{ fontSize: "16px", fontWeight: 900, letterSpacing: "-0.03em" }}>
-          Pop<span style={{ color: "#f72585" }}>Off</span>
-        </span>
-        <span style={{ fontSize: "12px", color: "#71717a" }}>© 2026 PopOff. Built for creators.</span>
+      <footer style={{ background: "#000", padding: "24px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span className="display" style={{ fontSize: "20px", color: "#fff" }}>Pop<span style={{ color: "#f72585" }}>Off</span></span>
+        <span style={{ fontSize: "12px", color: "#fff", opacity: 0.4 }}>© 2026 PopOff. Built for creators.</span>
       </footer>
 
     </div>
+    </>
   );
 }
