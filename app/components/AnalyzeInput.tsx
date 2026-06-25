@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { PostMetric } from '../../lib/schema';
 
+// 1. Added the prop here
 export default function AnalyzeInput({ onAnalysisComplete }: { onAnalysisComplete: (result: any) => void }) {
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -28,6 +29,8 @@ export default function AnalyzeInput({ onAnalysisComplete }: { onAnalysisComplet
       }
 
       setResult(data.post); 
+      // 2. Added this line so the parent page gets the data
+      onAnalysisComplete(data.post); 
     } catch (err: any) {
       setError(err.message);
     } finally {
